@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -10,6 +11,7 @@ body {
     line-height: 1.6;
 }
 
+/* Informational panel styling */
 .info-panel {
     background-color: #ffffff;
     padding: 20px;
@@ -18,39 +20,41 @@ body {
     margin-bottom: 25px;
     max-width: 800px;
     text-align: left;
-    border-left: 5px solid #007bff;
+    border-left: 5px solid #007bff; /* Accent border */
 }
 
 .info-panel h1, .info-panel h2 {
-    color: #005a9c;
+    color: #005a9c; /* Dark blue for headings */
     margin-top: 0;
 }
 .info-panel h2 {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee; /* Separator for subheadings */
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
 
 .info-panel img {
-    max-width: 180px;
-    float: right;
-    margin: 0 0 10px 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    max-width: 180px; /* Control image size */
+    float: right; /* Position image to the right */
+    margin: 0 0 10px 20px; /* Spacing around image */
+    border: 1px solid #ddd; /* Light border for image */
+    border-radius: 8px; /* Rounded corners for image */
 }
 
+/* Main container for the sunshine meter simulation */
 .sunshine-meter-container {
-    position: relative;
-    width: 650px; /* Slightly wider for better gradient display */
+    position: relative; /* For absolute positioning of child elements */
+    width: 650px;
     height: 480px;
-    /* Background will be set by JavaScript */
-    border: 2px solid #777;
-    border-radius: 12px;
+    /* Background gradient is set by JavaScript */
+    border: 2px solid #777; /* Border for the container */
+    border-radius: 12px; /* Rounded corners */
     margin-bottom: 25px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    overflow: hidden; /* Clip child elements that go outside bounds */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Subtle shadow */
 }
 
+/* Canvas for the (now removed) light ray - kept for structural consistency and potential future use */
 #light-ray-canvas {
     position: absolute;
     top: 0;
@@ -61,85 +65,90 @@ body {
     pointer-events: none; /* Allow clicks to pass through */
 }
 
+/* Sun element styling */
 #sun {
     position: absolute;
-    width: 60px; /* Slightly larger */
+    width: 60px;
     height: 60px;
     background-color: yellow;
-    border-radius: 50%;
-    box-shadow: 0 0 25px yellow, 0 0 35px orange;
-    left: 50%;
-    top: 30px;
-    transform: translateX(-50%);
-    z-index: 10;
-    transition: opacity 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
+    border-radius: 50%; /* Makes it a circle */
+    box-shadow: 0 0 25px yellow, 0 0 35px orange; /* Glow effect */
+    left: 50%; /* Initial horizontal position */
+    top: 30px;  /* Initial vertical position */
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 10; /* Above other elements */
+    transition: opacity 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    display: flex; /* For centering text label */
     justify-content: center;
     align-items: center;
     font-size: 12px;
     font-weight: bold;
-    color: #444;
+    color: #444; /* Text color for "Sun" */
 }
 
+/* Glass sphere element styling */
 #sphere {
     position: absolute;
-    width: 110px; /* Slightly larger */
+    width: 110px;
     height: 110px;
-    background: radial-gradient(circle at 35% 35%, #ffffff, #d4e8ff, #a8d0ff);
+    background: radial-gradient(circle at 35% 35%, #ffffff, #d4e8ff, #a8d0ff); /* Simulates glass reflection */
     border-radius: 50%;
     border: 1px solid #88bbdd;
-    box-shadow: 3px 3px 12px rgba(0,0,0,0.3), inset -6px -6px 18px rgba(0,0,0,0.2);
+    box-shadow: 3px 3px 12px rgba(0,0,0,0.3), inset -6px -6px 18px rgba(0,0,0,0.2); /* 3D effect */
     left: 50%;
-    top: 220px; /* Adjusted for new container height */
+    top: 220px;
     transform: translateX(-50%);
-    z-index: 5;
+    z-index: 5; /* Below sun, above card holder */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 11px;
-    color: #003366; /* Dark blue text */
+    color: #003366; /* Dark blue text for "Glass Sphere" */
     font-weight: bold;
 }
 
+/* Common styling for labels on sun and sphere */
 .element-label {
-    pointer-events: none; /* So it doesn't interfere with interactions */
+    pointer-events: none; /* So labels don't interfere with interactions */
 }
 .sphere-label {
-    line-height: 1.1;
+    line-height: 1.1; /* Adjust line height for two-line text */
 }
 
-
+/* Card holder styling */
 #card-holder {
     position: absolute;
     width: 400px;
     height: 80px;
-    background-color: #c8a078; /* Richer tan */
+    background-color: #c8a078; /* Tan color for card holder */
     left: 50%;
-    top: 340px; /* Adjusted for new container height */
+    top: 340px;
     transform: translateX(-50%);
     border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
-    z-index: 4; /* Above light ray */
+    z-index: 4; /* Above light ray canvas, below sphere */
 }
 
+/* Recording card (canvas) styling */
 #recording-card {
-    background-color: #faf0e6; /* Lighter, creamy beige */
-    border: 1px solid #9d8369;
-    border-radius: 2px; /* Slight rounding on card itself */
+    background-color: #faf0e6; /* Creamy beige for card paper */
+    border: 1px solid #9d8369; /* Border for the card */
+    border-radius: 2px;
 }
 
+/* Controls section styling (slider and buttons) */
 .controls {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 12px; /* Spacing between control elements */
     margin-top: 10px;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Light background for controls */
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     width: 400px;
@@ -150,10 +159,10 @@ body {
 }
 .controls input[type="range"] {
     width: 300px;
-    cursor: grab;
+    cursor: grab; /* Indicate draggable slider */
 }
 .controls input[type="range"]:active {
-    cursor: grabbing;
+    cursor: grabbing; /* Change cursor while dragging */
 }
 
 .controls button {
@@ -162,38 +171,41 @@ body {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: background-color 0.2s, transform 0.1s; /* Smooth transitions for interactions */
     font-weight: 500;
-    min-width: 180px; /* Ensure buttons have a nice width */
+    min-width: 180px;
 }
 .controls button:hover {
-    filter: brightness(110%);
+    filter: brightness(110%); /* Slight highlight on hover */
 }
 .controls button:active {
-    transform: scale(0.98);
+    transform: scale(0.98); /* Slight press effect */
 }
 
+/* Styling for the "Toggle Sunshine" button based on state */
 .controls button.active {
     background-color: #28a745; /* Green when sun is shining */
 }
- .controls button.inactive {
+.controls button.inactive {
     background-color: #dc3545; /* Red when sun is not shining */
 }
-.controls button:not(.active):not(.inactive) { /* Reset button */
-    background-color: #007bff;
+/* Default style for other buttons (e.g., Reset) */
+.controls button:not(.active):not(.inactive) {
+    background-color: #007bff; /* Blue for reset button */
 }
 .controls button:not(.active):not(.inactive):hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Footer styling for attribution */
 .attribution-footer {
     margin-top: 30px;
     padding: 20px;
-    background-color: #343a40;
-    color: #f8f9fa;
+    background-color: #343a40; /* Dark background for footer */
+    color: #f8f9fa; /* Light text for footer */
     text-align: center;
     width: 100%;
-    box-sizing: border-box; /* Include padding in width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 .attribution-footer h2 {
     margin-top: 0;
@@ -202,7 +214,7 @@ body {
 }
 .attribution-footer p {
     font-size: 0.9em;
-    max-width: 700px;
+    max-width: 700px; /* Limit width of paragraph for readability */
     margin-left: auto;
     margin-right: auto;
 }
