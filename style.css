@@ -1,0 +1,208 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #eef1f5; /* Lighter, neutral background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.info-panel {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    max-width: 800px;
+    text-align: left;
+    border-left: 5px solid #007bff;
+}
+
+.info-panel h1, .info-panel h2 {
+    color: #005a9c;
+    margin-top: 0;
+}
+.info-panel h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.info-panel img {
+    max-width: 180px;
+    float: right;
+    margin: 0 0 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.sunshine-meter-container {
+    position: relative;
+    width: 650px; /* Slightly wider for better gradient display */
+    height: 480px;
+    /* Background will be set by JavaScript */
+    border: 2px solid #777;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+#light-ray-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Behind sun and sphere, above background */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+#sun {
+    position: absolute;
+    width: 60px; /* Slightly larger */
+    height: 60px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 25px yellow, 0 0 35px orange;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: opacity 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #444;
+}
+
+#sphere {
+    position: absolute;
+    width: 110px; /* Slightly larger */
+    height: 110px;
+    background: radial-gradient(circle at 35% 35%, #ffffff, #d4e8ff, #a8d0ff);
+    border-radius: 50%;
+    border: 1px solid #88bbdd;
+    box-shadow: 3px 3px 12px rgba(0,0,0,0.3), inset -6px -6px 18px rgba(0,0,0,0.2);
+    left: 50%;
+    top: 220px; /* Adjusted for new container height */
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 11px;
+    color: #003366; /* Dark blue text */
+    font-weight: bold;
+}
+
+.element-label {
+    pointer-events: none; /* So it doesn't interfere with interactions */
+}
+.sphere-label {
+    line-height: 1.1;
+}
+
+
+#card-holder {
+    position: absolute;
+    width: 400px;
+    height: 80px;
+    background-color: #c8a078; /* Richer tan */
+    left: 50%;
+    top: 340px; /* Adjusted for new container height */
+    transform: translateX(-50%);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
+    z-index: 4; /* Above light ray */
+}
+
+#recording-card {
+    background-color: #faf0e6; /* Lighter, creamy beige */
+    border: 1px solid #9d8369;
+    border-radius: 2px; /* Slight rounding on card itself */
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 400px;
+}
+.controls label {
+    margin-right: 8px;
+    font-weight: 500;
+}
+.controls input[type="range"] {
+    width: 300px;
+    cursor: grab;
+}
+.controls input[type="range"]:active {
+    cursor: grabbing;
+}
+
+.controls button {
+    padding: 10px 18px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    font-weight: 500;
+    min-width: 180px; /* Ensure buttons have a nice width */
+}
+.controls button:hover {
+    filter: brightness(110%);
+}
+.controls button:active {
+    transform: scale(0.98);
+}
+
+.controls button.active {
+    background-color: #28a745; /* Green when sun is shining */
+}
+ .controls button.inactive {
+    background-color: #dc3545; /* Red when sun is not shining */
+}
+.controls button:not(.active):not(.inactive) { /* Reset button */
+    background-color: #007bff;
+}
+.controls button:not(.active):not(.inactive):hover {
+    background-color: #0056b3;
+}
+
+.attribution-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+.attribution-footer h2 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+.attribution-footer p {
+    font-size: 0.9em;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
