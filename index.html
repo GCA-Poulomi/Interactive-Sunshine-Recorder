@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Sunshine Meter v2</title>
+    </head>
+<body>
+
+    <div class="info-panel">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Campbell-Stokes_recorder_IMGP0311.jpg/800px-Campbell-Stokes_recorder_IMGP0311.jpg" alt="Campbell-Stokes Sunshine Recorder">
+        <h1>Interactive Campbell-Stokes Sunshine Meter</h1>
+        <p>This tool demonstrates the workings of a Campbell–Stokes recorder, an instrument used to measure sunshine duration. The original was invented by John Francis Campbell in 1853 and modified by Sir George Gabriel Stokes in 1879.</p>
+        <p>It uses a glass sphere to focus sunlight onto a special card. As the sun moves across the sky, the focused beam burns a trace on the card. The length of this trace indicates the hours of bright sunshine.</p>
+        <h2>How to Use:</h2>
+        <ul>
+            <li><strong>Time of Day Slider:</strong> Drag the slider to simulate the sun moving across the sky from morning (left) to evening (right).</li>
+            <li><strong>Toggle Sunshine Button:</strong> Click this to simulate clear skies (sun can burn) or cloudy skies (sun cannot burn).</li>
+            <li>Observe the light ray and how a "burn" mark is created on the card when the sun is shining.</li>
+            <li><strong>Reset Card:</strong> Clears any burn marks from the card.</li>
+        </ul>
+    </div>
+
+    <div class="sunshine-meter-container" id="meter-container">
+        <canvas id="light-ray-canvas"></canvas>
+        <div id="sun">
+            <span class="element-label">Sun</span>
+        </div>
+        <div id="sphere">
+            <span class="element-label sphere-label">Glass<br>Sphere</span>
+        </div>
+        <div id="card-holder">
+            <canvas id="recording-card"></canvas>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div>
+            <label for="time-slider">Time of Day (6 AM to 6 PM):</label>
+            <input type="range" id="time-slider" min="0" max="120" value="60">
+        </div>
+        <button id="toggle-sunshine">Sun is Shining</button>
+        <button id="reset-card">Reset Card</button>
+    </div>
+
+    <footer class="attribution-footer">
+        <h2>About this Resource</h2>
+        <p>This resource was created using polyimage acrobatty by vibe coding and developing this resource as an educational resource for the Global Climate Association's educational resources.</p>
+    </footer>
+
+    </body>
+</html>
