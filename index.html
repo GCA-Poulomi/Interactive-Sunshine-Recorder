@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Sunshine Meter v2</title>
-    </head>
+    <title>Interactive Sunshine Meter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
     <div class="info-panel">
@@ -16,14 +17,13 @@
         <ul>
             <li><strong>Time of Day Slider:</strong> Drag the slider to simulate the sun moving across the sky from morning (left) to evening (right).</li>
             <li><strong>Toggle Sunshine Button:</strong> Click this to simulate clear skies (sun can burn) or cloudy skies (sun cannot burn).</li>
-            <li>Observe the light ray and how a "burn" mark is created on the card when the sun is shining.</li>
+            <li>Observe how a "burn" mark is created on the card when the sun is shining.</li>
             <li><strong>Reset Card:</strong> Clears any burn marks from the card.</li>
         </ul>
     </div>
 
     <div class="sunshine-meter-container" id="meter-container">
-        <canvas id="light-ray-canvas"></canvas>
-        <div id="sun">
+        <canvas id="light-ray-canvas"></canvas> <div id="sun">
             <span class="element-label">Sun</span>
         </div>
         <div id="sphere">
@@ -48,5 +48,6 @@
         <p>This resource was created using polyimage acrobatty by vibe coding and developing this resource as an educational resource for the Global Climate Association's educational resources.</p>
     </footer>
 
-    </body>
+    <script src="script.js" defer></script>
+</body>
 </html>
