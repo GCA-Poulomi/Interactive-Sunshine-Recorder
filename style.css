@@ -209,7 +209,7 @@ body {
 }
 .attribution-footer h2 {
     margin-top: 0;
-    color: #ffffff;
+    color: #ffffff; /* White color for the heading in the footer */
     font-size: 1.2em;
 }
 .attribution-footer p {
@@ -217,4 +217,17 @@ body {
     max-width: 700px; /* Limit width of paragraph for readability */
     margin-left: auto;
     margin-right: auto;
+    color: #ffffff; /* Ensure paragraph text is also white */
+}
+
+/* Styling for links within the footer */
+.attribution-footer a {
+    color: #ffffff; /* White color for links */
+    text-decoration: underline; /* Keeps the underline for link visibility */
+}
+
+/* Optional: Style for hovered links in the footer */
+.attribution-footer a:hover {
+    color: #dddddd; /* Slightly off-white on hover to indicate interactivity */
+    text-decoration: underline;
 }
