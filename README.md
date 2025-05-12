@@ -22,6 +22,11 @@ Here's a quick look at the interactive simulator in action:
 
 https://github.com/user-attachments/assets/bbecc1cc-c2c9-4124-80ac-cff5f966fd14
 
+## How does the Sunshine Recorder Look Like in Reality
+![image](https://github.com/user-attachments/assets/331086d9-82ae-42da-8034-0bee0869598b)
+Image source: https://blog.globalclimateassociation.org/elements-of-weather 
+
+
 ## How to Use
 Simply open the `index.html` file in a web browser to start the simulation.
 The controls are intuitive:
